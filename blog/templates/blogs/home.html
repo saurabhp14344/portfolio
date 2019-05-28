@@ -31,32 +31,43 @@
         </div>
     </nav>
 </header>
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Hi I'm saurabh.</h1>
-        <p class="lead text-muted">Hello, my name is saurabh and I like to work on django projects.</p>
-        <p>
-            <a href="mailto:saurabh@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'IMG_6358-01.jpeg' %}" height="200" width="300"/>
+<section class="text-center">
+    <div>
+        <h1>Welcome to Saurabh Blogs.</h1>
     </div>
+    <br/>
+    <br/>
 </section>
-<div class="container">
-    <div class="row">
-        {% for jobs in job.all %}
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="{{ jobs.image.url }}"/>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p>{{ jobs.summary }}</p>
+<main class="">
+    <div class="container">
+        <div class="col-md-4">
+            <h3>Latest Blog</h3>
+        </div>
+    </div>
+    <hr/>
+    <br/>
+    <br/>
+    <div class="container">
+        <div class="row">
+            {% for blog in blogs.all %}
+                <div class="col-md-4">
+                    <h4><a href="{% url 'details' blog.id %} ">{{ blog.title }}</a></h4>
+                    <div class="card mb-4 box-shadow">
+                        <p><b>{{ blog.pub_date }}</b></p>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p>{{ blog.summary }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <img class="card-img-top" src="{{ blog.image.url }}"/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
+</main>
 </body>
 <footer class="text-muted">
     <div class="container text-center">

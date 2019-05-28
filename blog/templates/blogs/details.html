@@ -31,32 +31,31 @@
         </div>
     </nav>
 </header>
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Hi I'm saurabh.</h1>
-        <p class="lead text-muted">Hello, my name is saurabh and I like to work on django projects.</p>
-        <p>
-            <a href="mailto:saurabh@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'IMG_6358-01.jpeg' %}" height="200" width="300"/>
+<section class="text-center">
+    <div>
+        <h1>{{ detailblog.title }}</h1>
     </div>
+    <br/>
+    <br/>
+    <p class="text-center"><b>{{ detailblog.pub_date }}</b></p>
 </section>
-<div class="container">
-    <div class="row">
-        {% for jobs in job.all %}
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="{{ jobs.image.url }}"/>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p>{{ jobs.summary }}</p>
-                        </div>
+<main class="">
+    <hr/>
+    <br/>
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="box-shadow">
+                <img class="card-img-top" src="{{ detailblog.image.url }}"/>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p>{{ detailblog.body }}</p>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        </div>
     </div>
-</div>
+</main>
 </body>
 <footer class="text-muted">
     <div class="container text-center">
